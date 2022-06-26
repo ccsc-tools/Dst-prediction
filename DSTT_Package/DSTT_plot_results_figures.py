@@ -38,17 +38,20 @@ from DSTT_model import *
 
 interval_type = 'hourly'
 show_figures=True
+figures_dir = 'figures'
+results_dir='results'
+
 def plot_figures(start_hour, end_hour,show_figures=False):
     for k in range(start_hour,end_hour):
         print('Graphing results for h =', k, 'hour ahead')
         num_hours = k
         model = DSTTModel()
-        predictions,ale,epis,y_test,ax_dates = model.get_results(num_hours)
+        predictions,ale,epis,y_test,ax_dates = model.get_results(num_hours,results_dir=results_dir)
         ax_dates = [datetime.strptime(t,'%Y-%m-%d %H:%M:%S') for t in ax_dates]
         
-        file_name = 'figures' +'' + os.sep + 'dst_' +str(num_hours) + interval_type[0] +'.png'
-        file_name_aleatoric = 'figures' +'' + os.sep + 'dst_' +str(num_hours) + interval_type[0] +'_aleatoric.png'
-        file_name_epistemic = 'figures' +'' + os.sep + 'dst_' +str(num_hours) + interval_type[0] +'_epistemic.png'
+        file_name = figures_dir +'' + os.sep + 'dst_' +str(num_hours) + interval_type[0] +'.png'
+        file_name_aleatoric = figures_dir +'' + os.sep + 'dst_' +str(num_hours) + interval_type[0] +'_aleatoric.png'
+        file_name_epistemic = figures_dir +'' + os.sep + 'dst_' +str(num_hours) + interval_type[0] +'_epistemic.png'
         
         figsize = (9,3.5)
         plot_figure(ax_dates,y_test,predictions,epis,num_hours,label='Dst index',

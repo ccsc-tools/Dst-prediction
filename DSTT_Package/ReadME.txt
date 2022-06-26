@@ -49,7 +49,7 @@ After downloading the zip files from github repository: https://github.com/deeps
  default_results               - will include the prediction result files from the initial work of DSTT produced by the default models.
  figures                       - will include the prediction result figures.
  default_figures               - will include the prediction result figures from the initial work of DSTT produced by the default models.
- 						Note: The figures are saved as PNG files which can be viewed individually using PNG viewer in case the figures are not displayed due to any system or environment issues.
+ 				Note: The figures are saved as PNG files which can be viewed individually using PNG viewer in case the figures are not displayed due to any system or environment issues.
  DSTT_test.py                  - Python program to test/predict a trained model.
  DSTT_train.py                 - Python program to train a model and save it to the "models" directory.
  DSTT_plot_results_figures.py  - Python program to redraw the DSTT figures from existing predictions that exist in the "results" directory.

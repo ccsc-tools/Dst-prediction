@@ -62,9 +62,6 @@ models_directory="models"
 results_dir='results'
 figures_dir='figures'
 
-if models_directory == 'default_models':
-    results_dir = 'default_results'
-    figures_dir = 'default_figures'
     
 os.makedirs(models_directory,  exist_ok=True)
 os.makedirs(results_dir,  exist_ok=True)
