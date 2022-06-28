@@ -333,7 +333,7 @@ class DSTTModel:
         a[0] = self.aleatoric
         df['Epistemic'] = e
         df['Aleatoric'] = a
-        log('Saving the result to:', results_dir + os.sep + 'dst_' + str(num_hours)+'h_results.csv',verbose=True)
+        log('Saving the result file: dst_' + str(num_hours)+'h_results.csv',verbose=True)
         df.to_csv(results_dir + os.sep + 'dst_' + str(num_hours)+'h_results.csv',index=None)
 
     def get_results(self,num_hours,results_dir='results'):

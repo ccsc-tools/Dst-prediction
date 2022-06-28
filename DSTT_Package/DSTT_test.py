@@ -67,7 +67,7 @@ os.makedirs(models_directory,  exist_ok=True)
 os.makedirs(results_dir,  exist_ok=True)
 os.makedirs(figures_dir,  exist_ok=True)
 
-def test(start_hour, end_hour,show_figures=False):
+def test(start_hour, end_hour,models_directory='models',results_dir='results', figures_dir='figures',show_figures=False):
     for k in range(start_hour,end_hour):
         model = DSTTModel()
         print('Running testing for h =', k, 'hour ahead')
@@ -124,22 +124,22 @@ def test(start_hour, end_hour,show_figures=False):
         model.set_dates(ax_dates)
         model.save_results(num_hours,results_dir=results_dir)
         
-        plot_figure(ax_dates,y_test,predictions,predictions_ft[2],num_hours,label='Dst index',
-                    file_name=file_name_epistemic ,wider_size=False,figsize = figsize,
-                    interval=interval_type[0],uncertainty_label='Epistemic Uncertainty', 
-                    fill_graph=True,
-                    x_labels=True,
-                    x_label='Time\n(a)')
-        plot_figure(ax_dates,y_test,predictions,predictions_ft[1],num_hours,label='Dst index',
-                    file_name=file_name_aleatoric ,wider_size=False,figsize = figsize,
-                    interval=interval_type[0],uncertainty_label='Aleatoric Uncertainty', fill_graph=True,
-                    uncertainty_color='#aabbff',
-                    x_labels=True,
-                    x_label='Time\n(b)')        
+        if show_figures:
+            plot_figure(ax_dates,y_test,predictions,predictions_ft[2],num_hours,label='Dst index',
+                        file_name=file_name_epistemic ,wider_size=False,figsize = figsize,
+                        interval=interval_type[0],uncertainty_label='wit Epistemic Uncertainty', 
+                        fill_graph=True,
+                        x_labels=True,
+                        x_label='Time\n(a)')
+            plot_figure(ax_dates,y_test,predictions,predictions_ft[1],num_hours,label='Dst index',
+                        file_name=file_name_aleatoric ,wider_size=False,figsize = figsize,
+                        interval=interval_type[0],uncertainty_label='with Aleatoric Uncertainty', fill_graph=True,
+                        uncertainty_color='#aabbff',
+                        x_labels=True,
+                        x_label='Time\n(b)')        
 
-    log('show_figures:', show_figures)
-    if show_figures:
-        plt.show()
+
+            plt.show()
 
 if __name__ == '__main__':
     starting_hour = 1

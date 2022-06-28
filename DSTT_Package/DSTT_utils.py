@@ -473,7 +473,7 @@ def plot_figure(x,y_test,y_preds_mean,y_preds_var,num_hours,label='Dst_index',
     if wider_size:
         figsize = (8.4,4.8)
     if denormalize:
-        print('denormalizing data with max:', norm_max, 'and min:', norm_min)
+        # print('denormalizing data with max:', norm_max, 'and min:', norm_min)
         y_test = de_normalize_data(y_test,norm_max,norm_min)
         y_preds_mean = de_normalize_data(y_preds_mean,norm_max,norm_min)        
     fig, ax = plt.subplots(figsize=figsize)
@@ -510,7 +510,7 @@ def plot_figure(x,y_test,y_preds_mean,y_preds_var,num_hours,label='Dst_index',
     if label_y.startswith('F'):
         label_y = 'F10.7'
     plt.ylabel(label_y)
-    plt.title(str(num_hours)+'' + interval +' ahead prediction', fontsize=13,fontweight='bold')
+    plt.title(str(num_hours)+'' + interval +' ahead prediction ' + uncertainty_label, fontsize=13,fontweight='bold')
     if not  boxing:
         # print('Removing top and right orders..')
         ax.spines['right'].set_color('none')
@@ -528,7 +528,7 @@ def plot_figure(x,y_test,y_preds_mean,y_preds_var,num_hours,label='Dst_index',
     xfmt = md.DateFormatter('%m/%d/%y')
     ax.xaxis.set_major_formatter(xfmt)
     if file_name is not None:
-        log('Saving figure to file:', file_name,verbose=True)
+        log('Saving the result figure file:', os.path.basename(file_name),verbose=False)
         plt.savefig(file_name)
     if return_fig:
         return plt

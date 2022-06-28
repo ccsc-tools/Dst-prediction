@@ -41,9 +41,9 @@ show_figures=True
 figures_dir = 'figures'
 results_dir='results'
 
-def plot_figures(start_hour, end_hour,show_figures=False):
+def plot_figures(start_hour, end_hour,show_figures=False,figures_dir = 'figures',results_dir='results'):
     for k in range(start_hour,end_hour):
-        print('Graphing results for h =', k, 'hour ahead')
+        log('Graphing results for h =', k, 'hour ahead', verbose=False)
         num_hours = k
         model = DSTTModel()
         predictions,ale,epis,y_test,ax_dates = model.get_results(num_hours,results_dir=results_dir)
@@ -56,13 +56,13 @@ def plot_figures(start_hour, end_hour,show_figures=False):
         figsize = (9,3.5)
         plot_figure(ax_dates,y_test,predictions,epis,num_hours,label='Dst index',
                     file_name=file_name_epistemic ,wider_size=False,figsize = figsize,
-                    interval=interval_type[0],uncertainty_label='Epistemic Uncertainty', 
+                    interval=interval_type[0],uncertainty_label='with Epistemic Uncertainty', 
                     fill_graph=True,
                     x_labels=True,
                     x_label='Time\n(a)')
         plot_figure(ax_dates,y_test,predictions,ale,num_hours,label='Dst index',
                     file_name=file_name_aleatoric ,wider_size=False,figsize = figsize,
-                    interval=interval_type[0],uncertainty_label='Aleatoric Uncertainty', fill_graph=True,
+                    interval=interval_type[0],uncertainty_label='with Aleatoric Uncertainty', fill_graph=True,
                     uncertainty_color='#aabbff',
                     x_labels=True,
                     x_label='Time\n(b)')        
@@ -85,4 +85,4 @@ if __name__ == '__main__':
         print('Invalid starting hour:', starting_hour,'\nHours must be between 1 and 6.')
         exit() 
     print('Starting hour:', starting_hour, 'ending hour:', ending_hour-1)
-    plot_figures(starting_hour, ending_hour, show_figures)
+    plot_figures(starting_hour, ending_hour, show_figures= show_figures, results_dir='default_results')
