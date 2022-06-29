@@ -56,7 +56,7 @@ interval_type = 'hourly'
 epochs = 100
 prev_weights = None
 w_dir=None
-def train(start_hour, end_hour):
+def train_model(start_hour, end_hour,models_directory=w_dir, epochs=epochs):
     for k in range(start_hour,end_hour):
         print('Running training for h =', k, 'hour ahead')
         num_hours = k
@@ -70,7 +70,7 @@ def train(start_hour, end_hour):
         log('model:', model) 
         model.compile()
         model.fit(X_train, y_train, epochs=epochs)
-        model.save_weights(num_hours,w_dir=w_dir)
+        model.save_weights(num_hours,w_dir=models_directory)
 
 if __name__ == '__main__':
     starting_hour = 1
@@ -84,4 +84,4 @@ if __name__ == '__main__':
         print('Invalid starting hour:', starting_hour,'\nHours must be between 1 and 6.')
         exit() 
     print('Starting hour:', starting_hour, 'ending hour:', ending_hour-1)
-    train(starting_hour, ending_hour)
+    train_model(starting_hour, ending_hour)
