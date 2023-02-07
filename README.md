@@ -13,17 +13,18 @@ The disturbance storm time (Dst) index is an important and useful measurement in
 For the latest updates of the tool refer to https://github.com/deepsuncode/Dst-prediction
 
 ## Installation on local machine
+To install TensorFlow with pip refer to https://www.tensorflow.org/install/pip
 
+Tested on Python 3.9.16 and the following version of libraries
 |Library | Version   | Description  |
 |---|---|---|
-|keras| 2.6.0 | Deep learning API|
-|numpy| 1.21.5| Array manipulation|
-|scikit-learn| 1.0.1| Machine learning|
-|sklearn| latest| Tools for predictive data analysis|
-|matlabplot| 3.4.3| Visutalization tool|
-| pandas|1.3.4| Data loading and manipulation|
-| seaborn | 0.11.2| Visualization tool|
-| scipy|1.7.1| Provides algorithms for optimization and statistics|
-| tensorboard| 2.7.0 | Provides the visualization and tooling needed for machine learning|
-| tensorflow-gpu| 2.6.1| Deep learning tool for high performance computation |
-|tensorflow-probability | 0.14.1| For probabilistic models|
+|keras| 2.10.0 | Deep learning API|
+|numpy| 1.24.2| Array manipulation|
+|scikit-learn| 1.2.1| Machine learning|
+|matplotlib| 3.6.3| Visutalization tool|
+| pandas|1.5.3| Data loading and manipulation|
+| seaborn | 0.12.2| Visualization tool|
+| scipy|1.10.0| Provides algorithms for optimization and statistics|
+| tensorboard| 2.10.1 | Provides the visualization and tooling needed for machine learning|
+| tensorflow| 2.10.1| Deep learning tool for high performance computation |
+|tensorflow-probability | 0.17.0| For probabilistic models|

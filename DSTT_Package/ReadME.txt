@@ -5,25 +5,29 @@ Prerequisites:
 Python, Tensorflow, and Cuda:
 The initial work and implementation of DSTT was done using Python version 3.9.7, Tensorflow 2.6.1 and GPU Cuda version cuda_11.4.r11.4.
 Therefore, in order to run the default out-of-the-box models to run some predictions, you should use the exact version of Python and Tensorflow. 
-Other versions are not tested, but they should work if you have the environment set properly to run deep learning jobs.
 
+Cuda Installation Package:
+You may download and install Cuda v 11.0 from https://developer.nvidia.com/cuda-11.0-download-archive
+
+Note: The updated version of Python and the packages are specified below.
+Tested on Python 3.9.16
 Python Packages:
 The following python packages and modules are required to run DSTT:
-tensorboard==2.7.0
+tensorboard==2.10.1
 tensorboard-data-server==0.6.1
-tensorboard-plugin-wit==1.8.0
-tensorflow==2.6.1
-tensorflow-estimator==2.6.0
-tensorflow-gpu==2.6.0
-tensorflow-probability==0.14.1
-numpy==1.21.5
-pandas==1.3.4
-keras==2.6.0
-scikit-learn
-sklearnmatplotlib==3.4.3
-matplotlib-inline==0.1.3
-seaborn==0.11.2
-scipy==1.7.1
+tensorboard-plugin-wit==1.8.1
+tensorflow==2.10.1
+tensorflow-estimator==2.10.0
+tensorflow-probability==0.17.0
+numpy==1.24.2
+pandas==1.5.3
+keras==2.10.0
+scikit-learn==1.2.1
+matplotlib==3.6.3
+matplotlib-inline==0.1.6
+seaborn==0.12.2
+scipy==1.10.0
+protobuf==3.19.6
 
 To install the required packages, you may use Python package manager "pip" as follow:
 1.	Copy the above packages into a text file,  ie "requirements.txt"
@@ -33,14 +37,12 @@ Note: There is a requirements file already created for you to use that includes 
        The files are located in the root directory of the DSTT_Package.
 Note: Python packages and libraries are sensitive to versions. Please make sure you are using the correct packages and libraries versions as specified above.
 
-Cuda Installation Package:
-You may download and install Cuda v 11.0 from https://developer.nvidia.com/cuda-11.0-download-archive
 
 Package Structure
 After downloading the zip files from github repository: https://github.com/deepsuncode/Dst-prediction the DSTT package includes the following folders and files:
  
  ReadMe.txt                    - this ReadMe file.
- requirements.txt              - includes Python required packages for Python version 3.9.7.
+ requirements.txt              - includes Python required packages for Python version 3.9.16.
  models                        - directory for newly trained models. 
  default_models                - includes default trained models used during the initial work of DSTT.
  logs                          - includes the logging inforation.
